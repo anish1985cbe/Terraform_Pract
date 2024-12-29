@@ -35,3 +35,18 @@ resource "aws_subnet" "login-Backend-subnet" {
     Name = "login-Backend-subnet"
   }
 }
+
+
+
+# Subnet For Database
+resource "aws_subnet" "login-Database-subnet" {
+  vpc_id     = aws_vpc.login-vpc.id
+  cidr_block = "10.0.2.0/24"
+  availability_zone = "us-west-2c"
+  map_public_ip_on_launch = "false"
+
+
+  tags = {
+    Name = "login-Database-subnet"
+  }
+}
